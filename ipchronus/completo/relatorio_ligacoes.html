@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Ligações - IpChronus</title>
+    <!-- Adicionando Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/ipchronus/completo/style.css"> <!-- Estilos personalizados -->
+    <!-- Carrega a logo -->
+    <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+    <!-- Logo -->
+    <img src="../logo.png" alt="Logo" class="logo">
+
+    <div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 3vh;">
+        <div class="text-center">
+            <h2 class="text-white mb-4">Relatório de Ligações</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Formulário -->
+                <div class="form-container">
+                    <form method="POST" action="relatorio.html">
+                        <div class="form-group">
+                            <label for="start_date">Data de Início:</label>
+                            <input type="date" id="start_date" name="start_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="end_date">Data de Fim:</label>
+                            <input type="date" id="end_date" name="end_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Filas:</label>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='checkbox' id='queue_9111' name='queues[]' value='9111'>
+                                <label class='form-check-label' for='queue_9111'>9111 - Suporte Direto</label>
+                            </div>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='checkbox' id='queue_001' name='queues[]' value='001'>
+                                <label class='form-check-label' for='queue_001'>001 - Suporte</label>
+                            </div>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='checkbox' id='queue_002' name='queues[]' value='002'>
+                                <label class='form-check-label' for='queue_002'>002 - Administrativo</label>
+                            </div>
+                            <div class='form-check'>
+                                <input class='form-check-input' type='checkbox' id='queue_003' name='queues[]' value='003'>
+                                <label class='form-check-label' for='queue_003'>003 - Comercial</label>
+                            </div>
+                        </div>
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-primary">Gerar Relatório</button>
+                            <button type="button" class="btn btn-secondary" onclick="setDateToYesterday()">Ontem</button>
+                            <button type="button" class="btn btn-secondary" onclick="setDateToToday()">Hoje</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados filtrados serão exibidos em 'relatorio.html' após o envio do formulário -->
+    </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        <hr>
+        <p>IpChronus Tecnologia LTDA ®<br>
+        CNPJ: 30.560.988/0001-04<br>
+        Av Feliciano Sodré Nº300 - Sala 516 - Teresópolis RJ<br>
+        (21) 2042-1828</p>
+    </div>
+
+    <!-- Adicionando Bootstrap JS e dependências -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Script para preencher as datas -->
+    <script>
+        function setDateToYesterday() {
+            let today = new Date();
+            let yesterday = new Date(today);
+            yesterday.setDate(today.getDate() - 1);
+
+            let dd = String(yesterday.getDate()).padStart(2, '0');
+            let mm = String(yesterday.getMonth() + 1).padStart(2, '0');
+            let yyyy = yesterday.getFullYear();
+
+            let dateString = yyyy + '-' + mm + '-' + dd;
+
+            document.getElementById('start_date').value = dateString;
+            document.getElementById('end_date').value = dateString; // Data de ontem
+        }
+
+        function setDateToToday() {
+            let today = new Date();
+            let dd = String(today.getDate()).padStart(2, '0');
+            let mm = String(today.getMonth() + 1).padStart(2, '0');
+            let yyyy = today.getFullYear();
+
+            let dateString = yyyy + '-' + mm + '-' + dd;
+
+            document.getElementById('start_date').value = dateString;
+            document.getElementById('end_date').value = dateString; // Data de hoje
+        }
+    </script>
+</body>
+</html>

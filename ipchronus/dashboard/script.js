@@ -1,5 +1,5 @@
 function accessReport() {
-    window.location.href = '/ipchronus/fila/index.php';
+    window.location.href = '/ipchronus/fila/monitor_filas.html';
 }
 
 function accessRealTime() {
@@ -15,5 +15,5 @@ function accessAbandonmentData() {
 }
 
 function accessCompleteReport() {
-    window.location.href = '/ipchronus/completo/index.php';
+    window.location.href = '/ipchronus/completo/relatorio_ligacoes.html';
 }

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="30"> <!-- Atualiza a cada 30 segundos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitor de Filas IpChronus</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Adiciona o favicon -->
+    <link rel="stylesheet" href="/ipchronus/fila/style.css">
+</head>
+<body>
+
+<img src="logo.png" alt="Logo" class="logo">
+
+<h1>Filas IpChronus Tecnologia</h1>
+
+<div class="container" id="queue-container">
+    <!-- Aqui serão inseridos dinamicamente os cards das filas -->
+</div>
+
+<hr class="divider">
+
+<div class="footer">
+    <p>IpChronus Tecnologia LTDA ®<br>
+    CNPJ: 30.560.988/0001-04<br>
+    Av Feliciano Sodré Nº300 - Sala 516 - Teresópolis RJ<br>
+    (21) 2042-1828</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var container = document.getElementById('queue-container');
+
+        // Função para criar um card de fila
+        function createQueueCard(queueId, queueName, calls, callers) {
+            var card = document.createElement('div');
+            card.className = 'card ' + (calls > 0 ? 'red' : '');
+
+            var html = '<h2>Fila ' + queueId + ' - ' + queueName + '</h2>';
+            if (calls > 0) {
+                html += '<p>Número de Chamadas: ' + calls + '</p>';
+                html += '<h3>Chamadores:</h3><ul>';
+                callers.forEach(function(caller) {
+                    html += '<li>' + caller + '</li>';
+                });
+                html += '</ul>';
+            } else {
+                html += '<p>Não há chamadores na fila no momento.</p>';
+            }
+
+            card.innerHTML = html;
+            return card;
+        }
+
+        // Função para carregar os dados das filas
+        function loadQueueData() {
+            // Requisição AJAX para obter os dados do PHP
+            axios.get('/ipchronus/fila/script.php')
+                .then(function(response) {
+                    var queueData = response.data;
+
+                    // Limpa o conteúdo atual do container
+                    container.innerHTML = '';
+
+                    // Itera sobre as filas '001', '002' e '003' e cria os cards
+                    ['001', '002', '003'].forEach(function(queueId) {
+                        var data = queueData[queueId];
+                        if (data) {
+                            var card = createQueueCard(queueId, data.queueName, data.calls, data.callers);
+                            container.appendChild(card);
+                        }
+                    });
+                })
+                .catch(function(error) {
+                    console.error('Erro ao carregar dados das filas:', error);
+                });
+        }
+
+        // Carrega os dados das filas inicialmente e define o intervalo de atualização
+        loadQueueData();
+        setInterval(loadQueueData, 30000); // Atualiza a cada 30 segundos
+    });
+</script>
+
+</body>
+</html>

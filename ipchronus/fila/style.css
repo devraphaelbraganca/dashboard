@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0A2540; /* Fundo azul escuro */
+    color: #fff; /* Texto branco */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura da tela */
+    position: relative; /* Posição relativa para o posicionamento absoluto do logo */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
+    justify-content: space-between; /* Espaçamento entre os cards */
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.card {
+    flex: 0 0 calc(30% - 20px); /* Tamanho dos cards com espaço entre eles */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    color: #333; /* Texto preto nos cards */
+    text-align: center; /* Centraliza o texto dentro dos cards */
+}
+
+.card.red {
+    background-color: #FF6347; /* Vermelho */
+}
+
+h1 {
+    color: #fff; /* Texto branco para o título */
+    text-align: center;
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    font-size: 1.5em; /* Tamanho maior para os títulos das filas */
+    margin-bottom: 10px; /* Espaçamento abaixo dos títulos das filas */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 150px; /* Largura da logo */
+    height: auto; /* Altura ajustável conforme a largura */
+}
+
+.footer {
+    background-color: #0A2540;
+    color: #ccc; /* Texto cinza para o rodapé */
+    padding: 15px;
+    text-align: center;
+    margin-top: auto; /* Coloca o rodapé no final da página */
+    font-size: 14px; /* Tamanho da fonte reduzido */
+}
+
+.footer p {
+    margin: 0;
+}
+
+.footer hr {
+    border: 0;
+    height: 1px;
+    background-color: #ccc; /* Linha separadora cinza */
+    margin: 5px 0;
+}

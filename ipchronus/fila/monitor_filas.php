@@ -51,95 +51,12 @@ $queue003 = '003';
 $data003 = getQueueData($queue003);
 $calls003 = $data003['calls'];
 $callers003 = $data003['callers'];
+
+// Incluir o cabeçalho HTML
+include('header.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="2"> <!-- Atualiza a cada 2 segundos -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monitor de Filas IpChronus</title>
-       <link rel="icon" href="favicon.ico" type="favicon.ico"> <!-- Adiciona o favicon -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #0A2540; /* Fundo azul escuro */
-            color: #fff; /* Texto branco */
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Garante que o corpo ocupe pelo menos a altura da tela */
-            position: relative; /* Posição relativa para o posicionamento absoluto do logo */
-        }
-        .container {
-            display: flex;
-            flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
-            justify-content: space-between; /* Espaçamento entre os cards */
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        .card {
-            flex: 0 0 calc(30% - 20px); /* Tamanho dos cards com espaço entre eles */
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            color: #333; /* Texto preto nos cards */
-            text-align: center; /* Centraliza o texto dentro dos cards */
-        }
-        .card.red {
-            background-color: #FF6347; /* Vermelho */
-        }
-        h1 {
-            color: #fff; /* Texto branco para o título */
-            text-align: center;
-            margin-bottom: 20px; /* Espaçamento abaixo do título */
-        }
-        h2 {
-            color: #333;
-            text-align: center;
-            font-size: 1.5em; /* Tamanho maior para os títulos das filas */
-            margin-bottom: 10px; /* Espaçamento abaixo dos títulos das filas */
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 150px; /* Largura da logo */
-            height: auto; /* Altura ajustável conforme a largura */
-        }
-        .footer {
-            background-color: #0A2540;
-            color: #ccc; /* Texto cinza para o rodapé */
-            padding: 15px;
-            text-align: center;
-            margin-top: auto; /* Coloca o rodapé no final da página */
-            font-size: 14px; /* Tamanho da fonte reduzido */
-        }
-        .footer p {
-            margin: 0;
-        }
-        .footer hr {
-            border: 0;
-            height: 1px;
-            background-color: #ccc; /* Linha separadora cinza */
-            margin: 5px 0;
-        }
-    </style>
-</head>
-<body>
-
+<!-- Corpo da página -->
 <img src="logo.png" alt="Logo" class="logo">
 
 <h1>Filas IpChronus Tecnologia</h1>
@@ -227,16 +144,5 @@ $callers003 = $data003['callers'];
     </div>
 </div>
 
-<hr class="divider">
-
-
-
-</body>
-<div class="footer">
-________________________________________________________________________________________________________________
-    <p>IpChronus Tecnologia LTDA ®<br>
-    CNPJ: 30.560.988/0001-04<br>
-    Av Feliciano Sodré Nº300 - Sala 516 - Teresópolis RJ<br>
-    (21) 2042-1828</p>
-</div>
-</html>
+<!-- Incluir o rodapé HTML -->
+<?php include('footer.php'); ?>

@@ -1,24 +1,19 @@
 function accessReport() {
-    alert("Acesso ao Relatório de Filas");
-
+    window.location.href = '/ipchronus/fila/index.php';
 }
 
 function accessRealTime() {
-    alert("Acesso Tempo Real");
-    
+    window.location.href = '/ipchronus/status/index.html';
 }
 
 function accessAbandonments() {
-    alert("Abandonos em tempo real");
-    
+    window.location.href = '/ipchronus/abandono/index.php';
 }
 
 function accessAbandonmentData() {
-    alert("Abandonos");
-    
+    window.location.href = '/ipchronus/abandono/data/index.php';
 }
 
 function accessCompleteReport() {
-    alert("Relatório completo de Filas");
-    
+    window.location.href = '/ipchronus/completo/index.php';
 }

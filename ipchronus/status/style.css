@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+}
+.quadrado {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 10px;
+    display: inline-block;
+}
+.estado {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
